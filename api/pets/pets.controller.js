@@ -4,11 +4,8 @@ var mongoose = require('mongoose');
 
 // Defining Model
 // =====================================================
-
-var Pet = mongoose.model('Pet', {
-    text: String,
-    weight: int
-});
+var schema = new mongoose.Schema({text: "string",weight: "number"}, {versionKey: false});
+var Pet = mongoose.model('Pet', schema);
 
 // Defining Routes
 // =====================================================
