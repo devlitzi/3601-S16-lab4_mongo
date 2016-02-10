@@ -43,10 +43,5 @@ angular.module("appModule")
             return self.data.length;
         };
 
-        self.bigAnimal(){
-            if(self.data.length >= 1) {
-
-            }
-        };
 
     });
