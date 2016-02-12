@@ -22,7 +22,7 @@ angular.module('appModule')
 
         self.addData = function(){
             if((self.nameField.length >= 1) && (self.gradeField.length > 0) && (self.creditField >= 1)) {
-                $http.post('api/data', {name: self.nameField, grade: self.gradeField, credits: self.creditField}).success(function(){
+                $http.post('api/gpa', {name: self.nameField, grade: self.gradeField, credits: self.creditField}).success(function(){
                     self.getData();
                 });
                 self.nameField = "";
@@ -32,7 +32,7 @@ angular.module('appModule')
         };
 
         self.removeData = function(index){
-            $http.delete('/api/data/' + self.data[index]._id).success(function(){
+            $http.delete('/api/gpa/' + self.data[index]._id).success(function(){
                 self.getData();
             });
         };
