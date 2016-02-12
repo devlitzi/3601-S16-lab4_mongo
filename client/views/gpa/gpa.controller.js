@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('appModule')
-    .controller('gpaCtrl', function($scope){
+    .controller('gpaCtrl', function($http){
         console.log("gpa controller loaded!");
         var self = this;
 
@@ -21,11 +21,11 @@ angular.module('appModule')
         self.getData();
 
         self.addData = function(){
-            if((self.textField.length >= 1) && (self.gradeField.length > 0) && (self.creditField >= 1)) {
-                $http.post('api/data', {name: self.textField, grade: self.gradeField, credits: self.creditField}).success(function(){
+            if((self.nameField.length >= 1) && (self.gradeField.length > 0) && (self.creditField >= 1)) {
+                $http.post('api/data', {name: self.nameField, grade: self.gradeField, credits: self.creditField}).success(function(){
                     self.getData();
                 });
-                self.textField = "";
+                self.nameField = "";
                 self.gradeField = "";
                 self.creditField = 0;
             }
