@@ -8,6 +8,7 @@ angular.module("appModule")
             .state('gpa', {
                 url: '/gpa',
                 templateUrl: 'views/gpa/gpa.html',
-                controller: 'gpaCtrl'
+                controller: 'gpaCtrl',
+                controllerAs: 'gpa'
             });
     });

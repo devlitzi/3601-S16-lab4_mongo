@@ -1,5 +1,19 @@
 
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<hr>
-<h1>This is a "gpa" page!</h1>
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+
+            <form ng-submit="gpa.addData()">
+                <input ng-model="form.nameField" type="text" size="30" placeholder="Course name">
+                <input ng-model="form.gradeField" type="text" size="12" placeholder="Course grade">
+                <input ng-model="form.creditField" type="text" size="12" placeholder="Course credits">
+                <input type="submit" value="submit" class="btn btn-primary">
+                <span class="floatRight">GPA: {{gpa.gpaCalc()}}</span>
+            </form>
+
+        </li>
+        <li class="list-group-item" ng-repeat="test in gpa.data">Class: {{test.name}}, Grade: {{test.grade}}, Credits: {{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="form.removeData($index)"></span></li>
+    </ul>
+</div>
