@@ -12,6 +12,8 @@ angular.module('appModule')
         // Normally, this would be stored in the db
         self.data = [];
 
+        self.color = "color:black";
+
         self.getData = function(){
             $http.get('api/gpa').success(function(gpas) {
                 self.data = gpas;
@@ -21,7 +23,7 @@ angular.module('appModule')
         self.getData();
 
         self.addData = function(){
-            if((self.nameField.length >= 1) && (self.gradeField.length === 1) && (self.creditField >= 1)) {
+            if((self.nameField.length >= 1) && (self.gradeField.length === 1) && gradeNum(self.gradeField) && (self.creditField >= 1)) {
                 $http.post('/api/gpa', {name: self.nameField, grade: self.gradeField.toUpperCase(), credits: self.creditField}).success(function(){
                     self.getData();
                 });
@@ -30,6 +32,19 @@ angular.module('appModule')
                 self.creditField = 0;
             } else {
                 alert("Make sure that you put in your information correctly!")
+            }
+        };
+
+        self.gpaCalc = function(){
+
+        };
+
+        function gradeNum(grade) {
+            if (grade == "A" | grade == "B" | grade == "C" | grade == "D" | grade == "F" ) {
+                return true;
+            }
+            else {
+                return false;
             }
         };
 
