@@ -6,9 +6,9 @@
         <li class="list-group-item">
 
             <form ng-submit="gpa.addData()">
-                <input ng-model="form.nameField" type="text" size="30" placeholder="Course name">
-                <input ng-model="form.gradeField" type="text" size="12" placeholder="Course grade">
-                <input ng-model="form.creditField" type="text" size="12" placeholder="Course credits">
+                <input ng-model="gpa.nameField" type="text" size="30" placeholder="Course name">
+                <input ng-model="gpa.gradeField" type="text" size="12" placeholder="Course grade">
+                <input ng-model="gpa.creditField" type="text" size="12" placeholder="Course credits">
                 <input type="submit" value="submit" class="btn btn-primary">
                 <span class="floatRight">GPA: {{gpa.gpaCalc()}}</span>
             </form>
