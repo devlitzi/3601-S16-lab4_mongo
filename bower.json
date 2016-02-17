@@ -1,9 +1,9 @@
 {
   "name": "3601-S16-lab4_mongo",
   "version": "0.0.0",
-  "homepage": "https://github.com/joethe/playingWithRouting",
+  "homepage": "https://github.com/devlitzi/3601-S16-lab4_mongo",
   "authors": [
-    "thele116 <thele116@morris.umn.edu>"
+    "litzi005 <litzi005@morris.umn.edu>"
   ],
   "license": "MIT",
   "ignore": [
