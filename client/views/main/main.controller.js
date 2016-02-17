@@ -34,6 +34,20 @@ angular.module("appModule")
             });
         };
 
+        self.biggestPet = function(data){
+            if (data.length >= 1) {
+                var biggestName = "";
+                var biggestWeight = 0;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].weight > biggestWeight) {
+                        biggestName = data[i].text;
+                        biggestWeight = data[i].weight;
+                    }
+                }
+                return "The biggest pet is " + biggestName + " weighing a whole " + biggestWeight + " lbs!";
+            }
+        };
+
         self.cat = function(str1, str2){
             return str1 + str2;
         };
