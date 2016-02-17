@@ -23,7 +23,7 @@ angular.module('appModule')
         self.getData();
 
         self.addData = function(){
-            if((self.nameField.length >= 1) && (self.gradeField.length === 1) && gradeNum(self.gradeField) && (self.creditField >= 1)) {
+            if((self.nameField.length >= 1) && (self.gradeField.length === 1) && gradeCheck(self.gradeField) && (self.creditField >= 1)) {
                 $http.post('/api/gpa', {name: self.nameField, grade: self.gradeField.toUpperCase(), credits: self.creditField}).success(function(){
                     self.getData();
                 });
@@ -35,16 +35,42 @@ angular.module('appModule')
             }
         };
 
-        self.gpaCalc = function(){
-
+        self.gpaCalc = function(data){
+            var gpa = 0;
+            var credits = 0;
+            if (data.length >= 1) {
+                 for (var i = 0; i < data.length; i++) {
+                     gpa += (gradeValue(data[i].grade) * data[i].credits);
+                     credits += data[i].credits;
+                 }
+                return (gpa / credits);
+            }
         };
 
-        function gradeNum(grade) {
+        function gradeCheck(grade) {
             if (grade == "A" | grade == "B" | grade == "C" | grade == "D" | grade == "F" ) {
                 return true;
             }
             else {
                 return false;
+            }
+        };
+
+        function gradeValue(letter){
+            if (letter == "A") {
+                return 4;
+            }
+            else if (letter == "B") {
+                return 3;
+            }
+            else if (letter == "C") {
+                return 2;
+            }
+            else if (letter == "D") {
+                return 1;
+            }
+            else if (letter == "F") {
+                return 0;
             }
         };
 

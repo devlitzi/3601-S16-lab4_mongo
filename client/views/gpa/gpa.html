@@ -10,7 +10,7 @@
                 <input ng-model="gpa.gradeField" type="text" size="12" placeholder="Course grade">
                 <input ng-model="gpa.creditField" type="text" size="12" placeholder="Course credits">
                 <input type="submit" value="submit" class="btn btn-primary">
-                <span class="floatRight">GPA: {{gpa.gpaCalc()}}</span>
+                <span class="floatRight">GPA: {{gpa.gpaCalc(gpa.data)}}</span>
             </form>
 
         </li>
