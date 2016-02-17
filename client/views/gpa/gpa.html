@@ -14,6 +14,6 @@
             </form>
 
         </li>
-        <li class="list-group-item" ng-repeat="test in gpa.data |filter: name track by $index">Class: {{test.name}}, Grade: {{test.grade}}, Credits: {{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="form.removeData($index)"></span></li>
+        <li class="list-group-item" ng-repeat="test in gpa.data">Class: {{test.name}}, Grade: {{test.grade}}, Credits: {{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="form.removeData($index)"></span></li>
     </ul>
 </div>
