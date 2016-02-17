@@ -25,8 +25,6 @@ angular.module("appModule")
                 $http.post('api/pets', {text: self.textField, weight: self.weightField}).success(function(){
                     self.getPets();
                 });
-                self.textField = "";
-                self.weightField = 0;
             }
         };
 
