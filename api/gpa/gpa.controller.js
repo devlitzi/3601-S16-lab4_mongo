@@ -38,11 +38,11 @@ exports.create = function(req, res) {
 };
 
 exports.destroy = function(req, res) {
-    GPA.findById(req.params._id, function(err, gpa){
+    GPA.findById(req.params.gpa_id, function(err, gpas){
         if(err) { res.send(err); return "error: " + err; }
-        if(!gpa) { return res.sendStatus(404); }
+        if(!gpas) { return res.sendStatus(404); }
 
-        gpa.remove(function(err){
+        gpas.remove(function(err){
             if(err) { return "error: " + err}
             return res.sendStatus(204);
         });
