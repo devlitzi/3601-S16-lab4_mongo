@@ -21,13 +21,15 @@ angular.module('appModule')
         self.getData();
 
         self.addData = function(){
-            if((self.nameField.length >= 1) && (self.gradeField.length > 0) && (self.creditField >= 1)) {
-                $http.post('/api/gpa', {name: self.nameField, grade: self.gradeField, credits: self.creditField}).success(function(){
+            if((self.nameField.length >= 1) && (self.gradeField.length === 1) && (self.creditField >= 1)) {
+                $http.post('/api/gpa', {name: self.nameField, grade: self.gradeField.toUpperCase(), credits: self.creditField}).success(function(){
                     self.getData();
                 });
                 self.nameField = "";
                 self.gradeField = "";
                 self.creditField = 0;
+            } else {
+                alert("Make sure that you put in your information correctly!")
             }
         };
 
