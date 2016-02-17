@@ -43,7 +43,7 @@ angular.module('appModule')
                      gpa += (gradeValue(data[i].grade) * data[i].credits);
                      credits += data[i].credits;
                  }
-                return (gpa / credits);
+                return (gpa / credits).toFixed(3);
             }
         };
 
