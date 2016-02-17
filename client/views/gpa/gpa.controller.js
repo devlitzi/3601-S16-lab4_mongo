@@ -13,8 +13,8 @@ angular.module('appModule')
         self.data = [];
 
         self.getData = function(){
-            $http.get('api/data').success(function(data) {
-                self.data = data;
+            $http.get('api/gpa').success(function(gpas) {
+                self.data = gpas;
             });
         };
 
@@ -32,7 +32,7 @@ angular.module('appModule')
         };
 
         self.removeData = function(index){
-            $http.delete('/api/gpa/' + self.data[index]._id).success(function(){
+            $http.delete('/api/gpa/' + self.data[index].gpa_id).success(function(){
                 self.getData();
             });
         };
